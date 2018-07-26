@@ -13472,7 +13472,7 @@ var app = new Vue({
 
 			if (this.again == 0) {
 
-				setTimeout(this.getSearchQuery, 1100);
+				setTimeout(this.getSearchQuery, 1200);
 
 				this.again = 1;
 			}
