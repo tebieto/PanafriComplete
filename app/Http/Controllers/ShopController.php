@@ -130,6 +130,21 @@ class ShopController extends Controller
 		
 	}
 	
+	public function deliverTransaction($tracker) 
+	
+	{
+		
+	 $tracker = Tracker::where('id', $tracker)->first()
+	  ->update([
+			
+			'status' => 7,
+			
+		]);	
+		
+		
+		
+	}
+	
 	public function deleteTransaction($id) 
 	
 	{
@@ -275,7 +290,7 @@ public function buyerChatTrackers()
 	
 	$all = array();
 	
-	$trackers = Tracker::where('status', 2)->where('buyer_id', auth::id())->where('seller_status', 1)->where('buyer_status', 1)->orderBy('created_at', 'DESC')->get();
+	$trackers = Tracker::where('status', 2)->where('buyer_id', auth::id())->where('seller_status', 1)->where('buyer_status', 1)->orWhere('status', 7)->orderBy('created_at', 'DESC')->get();
 	
 	
 	 foreach ($trackers as $tracker):
@@ -320,7 +335,7 @@ public function sellerChatTrackers()
 	
 	$all = array();
 	
-	$trackers = Tracker::where('status', 2)->where('seller_id', auth::id())->where('seller_status', 1)->where('buyer_status', 1)->orderBy('created_at', 'DESC')->get();
+	$trackers = Tracker::where('status', 2)->where('seller_id', auth::id())->where('seller_status', 1)->where('buyer_status', 1)->orWhere('status', 6)->orderBy('created_at', 'DESC')->get();
 	
 	
 	 foreach ($trackers as $tracker):

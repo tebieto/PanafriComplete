@@ -16,9 +16,11 @@
 			</center>
 			
 			</div>
-			<div v-for="product in this.products">
 			
+			<div class="products">
+			<span v-for="product in this.products">
 			<product :id="product.id" :name="product.name" :description="product.description" :status="product.status" :store="this.id" :category="product.category_id" :image="product.image"></product>
+			</span>
 			</div>
 	
 </div>

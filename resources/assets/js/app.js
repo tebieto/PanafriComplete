@@ -19,7 +19,7 @@ window.Vue = require('vue');
  /**
  * Uncomment below when compiling to production
  */
-Vue.config.devtools = false
+Vue.config.devtools = true
 Vue.config.debug = false
 Vue.config.silent = true
 

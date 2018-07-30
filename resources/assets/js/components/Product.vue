@@ -1,9 +1,7 @@
 <template>
-<div>
+<div class="seller-product-container">
 
 			<!-- Begin Office Product Class -->
-			
-		<div class="products">
 
 		<div class="seller-products">
 		
@@ -24,18 +22,13 @@
 			 <span id="offproduct" class="" v-if="available">
 			 <button style="background:red;" @click="offProduct()">Off</button><span style="color:#ddd; margin:7px;">on</span>
 			</span>
-		   </div>
-		   <!-- End of Product details Class -->
-		   </div>
-		<!-- End Product in products Class -->
-		
-		
 		</div>
+		   
+		   <!-- End of Product details Class -->
+		   
+		   </div>
 		
-		<!-- End products Class -->
-		
-		
-		<!-- End of Office Product class-->
+		<!-- End Product seller products Class -->
 		
 		
 		

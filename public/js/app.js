@@ -13168,7 +13168,7 @@ window.Vue = __webpack_require__(21);
 /**
 * Uncomment below when compiling to production
 */
-Vue.config.devtools = false;
+Vue.config.devtools = true;
 Vue.config.debug = false;
 Vue.config.silent = true;
 
@@ -51426,6 +51426,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51506,86 +51508,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "div",
-        { staticClass: "office" },
-        [
-          _c("center", [
-            _c(
-              "div",
-              {
-                staticStyle: {
-                  height: "80px",
-                  width: "250px",
-                  "overflow-y": "auto"
-                }
-              },
-              [
-                _c("h4", [
-                  _vm._v(
-                    "Office, " +
-                      _vm._s("#" + this.id) +
-                      ", " +
-                      _vm._s(this.name)
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            !_vm.storeOn
-              ? _c("span", { attrs: { id: "onStore" } }, [
-                  _c(
-                    "span",
-                    { staticStyle: { color: "#ddd", margin: "7px" } },
-                    [_vm._v("Offline")]
-                  ),
-                  _c(
-                    "button",
-                    {
-                      staticStyle: { background: "green" },
-                      on: {
-                        click: function($event) {
-                          _vm.onStore()
-                        }
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "office" },
+      [
+        _c("center", [
+          _c(
+            "div",
+            {
+              staticStyle: {
+                height: "80px",
+                width: "250px",
+                "overflow-y": "auto"
+              }
+            },
+            [
+              _c("h4", [
+                _vm._v(
+                  "Office, " + _vm._s("#" + this.id) + ", " + _vm._s(this.name)
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          !_vm.storeOn
+            ? _c("span", { attrs: { id: "onStore" } }, [
+                _c("span", { staticStyle: { color: "#ddd", margin: "7px" } }, [
+                  _vm._v("Offline")
+                ]),
+                _c(
+                  "button",
+                  {
+                    staticStyle: { background: "green" },
+                    on: {
+                      click: function($event) {
+                        _vm.onStore()
                       }
-                    },
-                    [_vm._v("Go Online")]
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.storeOn
-              ? _c("span", { attrs: { id: "offStore" } }, [
-                  _c(
-                    "button",
-                    {
-                      staticStyle: { background: "red", color: "#fff" },
-                      on: {
-                        click: function($event) {
-                          _vm.offStore()
-                        }
+                    }
+                  },
+                  [_vm._v("Go Online")]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.storeOn
+            ? _c("span", { attrs: { id: "offStore" } }, [
+                _c(
+                  "button",
+                  {
+                    staticStyle: { background: "red", color: "#fff" },
+                    on: {
+                      click: function($event) {
+                        _vm.offStore()
                       }
-                    },
-                    [_vm._v("Go Offline")]
-                  ),
-                  _c(
-                    "span",
-                    { staticStyle: { color: "#ddd", margin: "7px" } },
-                    [_vm._v("online")]
-                  )
+                    }
+                  },
+                  [_vm._v("Go Offline")]
+                ),
+                _c("span", { staticStyle: { color: "#ddd", margin: "7px" } }, [
+                  _vm._v("online")
                 ])
-              : _vm._e()
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
+              ])
+            : _vm._e()
+        ])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "products" },
       _vm._l(this.products, function(product) {
         return _c(
-          "div",
+          "span",
           [
             _c("product", {
               attrs: {
@@ -51602,9 +51598,8 @@ var render = function() {
           1
         )
       })
-    ],
-    2
-  )
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -53191,13 +53186,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53323,78 +53311,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "products" }, [
-      _c("div", { staticClass: "seller-products" }, [
-        this.image
-          ? _c("img", {
-              attrs: {
-                src: this.image,
-                height: "150px",
-                width: "200px",
-                alt: ""
-              }
-            })
+  return _c("div", { staticClass: "seller-product-container" }, [
+    _c("div", { staticClass: "seller-products" }, [
+      this.image
+        ? _c("img", {
+            attrs: { src: this.image, height: "150px", width: "200px", alt: "" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(this.name))]),
+      _vm._v(" "),
+      _c("span", [_vm._v(_vm._s(this.description))]),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "grey-button",
+          on: {
+            click: function($event) {
+              _vm.showProductPrice()
+            }
+          }
+        },
+        [_vm._v("Price Menu")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "product-details" }, [
+        !_vm.available
+          ? _c("span", { attrs: { id: "onproduct" } }, [
+              _c("span", { staticStyle: { color: "#ddd", margin: "7px" } }, [
+                _vm._v("off")
+              ]),
+              _c(
+                "button",
+                {
+                  staticStyle: { background: "green" },
+                  on: {
+                    click: function($event) {
+                      _vm.onProduct()
+                    }
+                  }
+                },
+                [_vm._v("On")]
+              )
+            ])
           : _vm._e(),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.name))]),
-        _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(this.description))]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "grey-button",
-            on: {
-              click: function($event) {
-                _vm.showProductPrice()
-              }
-            }
-          },
-          [_vm._v("Price Menu")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "product-details" }, [
-          !_vm.available
-            ? _c("span", { attrs: { id: "onproduct" } }, [
-                _c("span", { staticStyle: { color: "#ddd", margin: "7px" } }, [
-                  _vm._v("off")
-                ]),
-                _c(
-                  "button",
-                  {
-                    staticStyle: { background: "green" },
-                    on: {
-                      click: function($event) {
-                        _vm.onProduct()
-                      }
+        _vm.available
+          ? _c("span", { attrs: { id: "offproduct" } }, [
+              _c(
+                "button",
+                {
+                  staticStyle: { background: "red" },
+                  on: {
+                    click: function($event) {
+                      _vm.offProduct()
                     }
-                  },
-                  [_vm._v("On")]
-                )
+                  }
+                },
+                [_vm._v("Off")]
+              ),
+              _c("span", { staticStyle: { color: "#ddd", margin: "7px" } }, [
+                _vm._v("on")
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.available
-            ? _c("span", { attrs: { id: "offproduct" } }, [
-                _c(
-                  "button",
-                  {
-                    staticStyle: { background: "red" },
-                    on: {
-                      click: function($event) {
-                        _vm.offProduct()
-                      }
-                    }
-                  },
-                  [_vm._v("Off")]
-                ),
-                _c("span", { staticStyle: { color: "#ddd", margin: "7px" } }, [
-                  _vm._v("on")
-                ])
-              ])
-            : _vm._e()
-        ])
+            ])
+          : _vm._e()
       ])
     ]),
     _vm._v(" "),
@@ -54052,7 +54033,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		finishTransaction: function finishTransaction() {
 			this.finished = true;
 
-			axios.get('/finish/transaction/' + this.id).then(function (response) {});
+			axios.get('/deliver/transaction/' + this.id).then(function (response) {});
 		},
 		acceptRequest: function acceptRequest() {
 			this.accepted = true;
@@ -55140,7 +55121,7 @@ var render = function() {
                           },
                           on: { click: _vm.finishTransaction }
                         },
-                        [_vm._v("Delivered")]
+                        [_vm._v("Received")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -55932,7 +55913,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this = this;
 
 			Echo.private('App.User.' + this.id).notification(function (notification) {
-
+				if (notification.status == 1) {
+					return;
+				}
 				_this.getBuyerPendingTransactions();
 				_this.getBuyerActiveTransactions();
 				_this.getSellerActiveTransactions();
