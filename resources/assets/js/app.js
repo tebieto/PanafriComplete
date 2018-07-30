@@ -19,7 +19,7 @@ window.Vue = require('vue');
  /**
  * Uncomment below when compiling to production
  */
-Vue.config.devtools = false
+Vue.config.devtools = true
 Vue.config.debug = false
 Vue.config.silent = true
 
@@ -369,7 +369,7 @@ storeIndex.search(searchLocation, (err, store) => {
 
 if(this.again==0) {
 
-setTimeout(this.getSearchQuery, 1100)
+setTimeout(this.getSearchQuery, 1200)
 
 this.again= 1
 }

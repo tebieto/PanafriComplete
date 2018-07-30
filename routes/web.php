@@ -215,6 +215,11 @@ Route::get('/finish/transaction/{tracker}', [
 	'as' => 'finishTransaction'
 	]);
 	
+Route::get('/deliver/transaction/{tracker}', [
+	'uses' => 'ShopController@deliverTransaction',
+	'as' => 'deliverTransaction'
+	]);
+	
 Route::get('/request/transaction/{tracker}/{location}/{seller}', [
 	'uses' => 'ShopController@requestTransaction',
 	'as' => 'requestTransaction'

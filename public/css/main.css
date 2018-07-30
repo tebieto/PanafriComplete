@@ -723,7 +723,7 @@ margin-left: 124px;
 
 }
 
-.products div {
+.seller-products{
 background:#fff;
 color:#000;	
 vertical-align: top;
@@ -738,8 +738,14 @@ border-radius: 10px 10px 0 0;
 	
 }
 
+.seller-product-container {
 
-.products div:hover {
+width:20%;
+display:inline-block;	
+	
+}
+
+.seller-products:hover {
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);	
 	
 }
@@ -3515,5 +3521,11 @@ color: #000;
 #addProduct {
 	
 width: 200px;	
+}
+
+.chat-input input:focus{
+	border: 1px solid transparent;
+	box-shadow:none;
+	
 }
 

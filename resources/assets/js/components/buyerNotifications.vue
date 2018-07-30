@@ -29,7 +29,7 @@ listen() {
 
 	Echo.private('App.User.' + this.id)
 	.notification( (notification) => {
-	
+	if(notification.status==1) {return}
 	this.getBuyerPendingTransactions()
 	this.getBuyerActiveTransactions()
 	this.getSellerActiveTransactions()

@@ -65,7 +65,7 @@
 		<h4 style="margin-left:10px;">Total= N {{total}} Delivery= N {{this.delivery}} <br>Total + Delivery = N {{total + this.delivery}}</h4>
 		
 		<span v-if="finished==false && accepted==false">
-		<button style="margin-left:10px; cursor:default; border:none; color:green; background:#fff; font-weight:bold;">Accepted</button> <button style="margin-left:10px; border:1px solid #ddd; color:#000; background:yellow; font-weight:bold;" @click="finishTransaction">Delivered</button>  <button style="margin-left:10px; border:none; color:#fff; background:black; font-weight:bold;">Report</button>
+		<button style="margin-left:10px; cursor:default; border:none; color:green; background:#fff; font-weight:bold;">Accepted</button> <button style="margin-left:10px; border:1px solid #ddd; color:#000; background:yellow; font-weight:bold;" @click="finishTransaction">Received</button>  <button style="margin-left:10px; border:none; color:#fff; background:black; font-weight:bold;">Report</button>
 		</span>
 		
 		<span v-if="finished" style="color:green; margin-left:10px;">
