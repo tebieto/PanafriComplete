@@ -17,7 +17,7 @@
 			
 			</div>
 			
-			<div class="products">
+			<div class="products" v-if="loadProducts">
 			<span v-for="product in this.products">
 			<product :id="product.id" :name="product.name" :description="product.description" :status="product.status" :store="this.id" :category="product.category_id" :image="product.image"></product>
 			</span>
@@ -43,6 +43,7 @@ this.storeOn= false
 }
 this.getAuthDetails()
 this.getStoreProducts()
+setTimeout(this.startLoadingProducts, 3000)
 
 
 },
@@ -54,6 +55,7 @@ return {
 authDetails: [],
 products: [],
 storeOn: true,
+loadProducts: false,
 
 
 
@@ -65,6 +67,12 @@ storeOn: true,
 
 
 methods: {
+
+startLoadingProducts() {
+
+this.loadProducts=true
+
+},
 
 onStore() {
 
