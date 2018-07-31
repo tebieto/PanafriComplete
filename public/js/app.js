@@ -51441,6 +51441,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		}
 		this.getAuthDetails();
 		this.getStoreProducts();
+		setTimeout(this.startLoadingProducts, 3000);
 	},
 	data: function data() {
 
@@ -51448,13 +51449,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			authDetails: [],
 			products: [],
-			storeOn: true
+			storeOn: true,
+			loadProducts: false
 
 		};
 	},
 
 
 	methods: {
+		startLoadingProducts: function startLoadingProducts() {
+
+			this.loadProducts = true;
+		},
 		onStore: function onStore() {
 
 			this.storeOn = true;
@@ -51576,29 +51582,31 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "products" },
-      _vm._l(this.products, function(product) {
-        return _c(
-          "span",
-          [
-            _c("product", {
-              attrs: {
-                id: product.id,
-                name: product.name,
-                description: product.description,
-                status: product.status,
-                store: this.id,
-                category: product.category_id,
-                image: product.image
-              }
-            })
-          ],
-          1
+    _vm.loadProducts
+      ? _c(
+          "div",
+          { staticClass: "products" },
+          _vm._l(this.products, function(product) {
+            return _c(
+              "span",
+              [
+                _c("product", {
+                  attrs: {
+                    id: product.id,
+                    name: product.name,
+                    description: product.description,
+                    status: product.status,
+                    store: this.id,
+                    category: product.category_id,
+                    image: product.image
+                  }
+                })
+              ],
+              1
+            )
+          })
         )
-      })
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

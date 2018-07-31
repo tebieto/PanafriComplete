@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2018-07-22 21:52:38] local.ERROR: exception 'Exception' with message 'The bootstrap/cache directory must be present and writable.' in /opt/bitnami/apache2/htdocs/Panafripro/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:190
 Stack trace:
 #0 /opt/bitnami/apache2/htdocs/Panafripro/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(165): Illuminate\Foundation\ProviderRepository->writeManifest(Array)
@@ -7667,3 +7668,5 @@ Stack trace:
 Stack trace:
 #0 {main}  
 >>>>>>> 215ae0be1e0a6cdfb7ad512dcdccbf9ac60552f1
+=======
+>>>>>>> bef0a4233d0a7161eb99b188c38052470be955ae
