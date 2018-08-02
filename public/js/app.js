@@ -13271,7 +13271,7 @@ var app = new Vue({
 		};
 	},
 	mounted: function mounted() {
-
+		this.getLocation();
 		this.getBuyerChat();
 		this.getSellerChat();
 		this.getSellerRequests();
@@ -13665,7 +13665,6 @@ var app = new Vue({
 			}
 
 		}).then(function (response) {
-			_this14.getAuthShops();
 
 			_this14.shopLocation = '';
 			_this14.shopName = '';
@@ -13744,35 +13743,30 @@ var app = new Vue({
 		});
 	}), _defineProperty(_methods, 'showError', function showError(error) {
 
-		var x = document.getElementById("demo");
-
 		switch (error.code) {
 			case error.PERMISSION_DENIED:
-				x.innerHTML = "User denied the request for Geolocation.";
+				console.log("permision denied");
 				break;
 			case error.POSITION_UNAVAILABLE:
-				x.innerHTML = "Location information is unavailable.";
+				console.log("position unavailable");
 				break;
 			case error.TIMEOUT:
-				x.innerHTML = "The request to get user location timed out.";
+				console.log("Timeout");
 				break;
 			case error.UNKNOWN_ERROR:
-				x.innerHTML = "An unknown error occurred.";
+				console.log("unknown");
 				break;
 		}
 	}), _defineProperty(_methods, 'showPosition', function showPosition(position) {
 		var lat = position.coords.latitude;
 		var lng = position.coords.longitude;
 		var latlon = position.coords.latitude + "," + position.coords.longitude;
-		var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&key=AIzaSyAh3prpUKLUAW3z5ylYBjUgORLidrBdRMU";
-		document.getElementById("map").innerHTML = "<img src='" + img_url + "'>";
+		console.log('hello my people' + lat);
 	}), _defineProperty(_methods, 'getLocation', function getLocation() {
-		var x = document.getElementById("demo");
+
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
-		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		}
+		} else {}
 	}), _defineProperty(_methods, 'searchProducts', function searchProducts() {
 		var _this19 = this;
 
@@ -51278,7 +51272,28 @@ var render = function() {
               },
               [_vm._v("Enter Store")]
             )
-          : _vm._e()
+          : _c(
+              "button",
+              {
+                staticStyle: {
+                  background: "green",
+                  visibility: "hidden",
+                  color: "#fff",
+                  "border-radius": "10px",
+                  border: "none",
+                  "margin-top": "10px",
+                  padding: "10px",
+                  "font-weight": "bold",
+                  cursor: "pointer"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.displayShop()
+                  }
+                }
+              },
+              [_vm._v("Enter Store")]
+            )
       ]),
       _vm._v(" "),
       _vm.showShop && this.online == 1 && this.status == 1
@@ -51428,6 +51443,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51441,7 +51457,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		}
 		this.getAuthDetails();
 		this.getStoreProducts();
-		setTimeout(this.startLoadingProducts, 3000);
+		setTimeout(this.startLoadingProducts, 5000);
 	},
 	data: function data() {
 
@@ -51465,18 +51481,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.storeOn = true;
 
-			axios.get(this.root + '/on/store/' + this.id).then(function (response) {});
+			axios.get('/on/store/' + this.id).then(function (response) {});
 		},
 		offStore: function offStore() {
 
 			this.storeOn = false;
 
-			axios.get(this.root + '/off/store/' + this.id).then(function (response) {});
+			axios.get('/off/store/' + this.id).then(function (response) {});
 		},
 		getAuthDetails: function getAuthDetails() {
 			var _this = this;
 
-			axios.get(this.root + '/auth/details').then(function (response) {
+			axios.get('/auth/details').then(function (response) {
 
 				_this.authDetails.push(response.data);
 			});
@@ -51484,7 +51500,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		getStoreProducts: function getStoreProducts() {
 			var _this2 = this;
 
-			axios.get(this.root + '/products/store/' + this.id).then(function (response) {
+			axios.get('/products/store/' + this.id).then(function (response) {
 				response.data.forEach(function (product) {
 					_this2.products.push(product);
 				});
@@ -53238,7 +53254,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.prices.splice(index, 1);
 
-			axios.get(this.root + '/remove/prices/' + pid).then(function (response) {
+			axios.get('/remove/prices/' + pid).then(function (response) {
 
 				_this.getPrices();
 			});
@@ -53253,7 +53269,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			});
 
-			axios.post(this.root + '/send/price', data, {
+			axios.post('/send/price', data, {
 				headers: {
 					'Content-Type': 'application/json'
 
@@ -53270,7 +53286,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		getPrices: function getPrices() {
 			var _this3 = this;
 
-			axios.get(this.root + '/get/prices/' + this.id).then(function (response) {
+			axios.get('/get/prices/' + this.id).then(function (response) {
 
 				_this3.prices = [];
 				response.data.forEach(function (price) {
@@ -53281,7 +53297,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		getAuthDetails: function getAuthDetails() {
 			var _this4 = this;
 
-			axios.get(this.root + '/auth/details').then(function (response) {
+			axios.get('/auth/details').then(function (response) {
 
 				_this4.authDetails.push(response.data);
 			});
@@ -53299,13 +53315,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.available = true;
 
-			axios.get(this.root + '/on/product/' + this.id).then(function (response) {});
+			axios.get('/on/product/' + this.id).then(function (response) {});
 		},
 		offProduct: function offProduct() {
 
 			this.available = false;
 
-			axios.get(this.root + '/off/product/' + this.id).then(function (response) {});
+			axios.get('/off/product/' + this.id).then(function (response) {});
 		}
 	}
 

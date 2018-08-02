@@ -126,7 +126,7 @@ const app = new Vue({
 	},
 	
 mounted() {	
-	
+this.getLocation()	
 this.getBuyerChat()
 this.getSellerChat()
 this.getSellerRequests()
@@ -689,7 +689,7 @@ let data = JSON.stringify({
 						
 					})
 				.then( (response) => { 
-				this.getAuthShops()
+				
 				
 				this.shopLocation=''
 				this.shopName=''
@@ -793,20 +793,20 @@ getAllShops(){
 
 showError(error) {
 	
-	var x = document.getElementById("demo");
+	
 
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            console.log("permision denied")
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
+            console.log("position unavailable")
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+           console.log("Timeout")
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
+           console.log("unknown")
             break;
     }
 },
@@ -816,17 +816,15 @@ showPosition(position) {
 	var lat = position.coords.latitude;
 	var lng = position.coords.longitude
 	var latlon = position.coords.latitude + "," + position.coords.longitude;
-    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=400x300&key=AIzaSyAh3prpUKLUAW3z5ylYBjUgORLidrBdRMU";
-    document.getElementById("map").innerHTML = "<img src='"+img_url+"'>";
+    console.log('hello my people' + lat)
 },
 	
 getLocation() {
-	var x = document.getElementById("demo");
+	
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
     } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        
     }
 	
 },
