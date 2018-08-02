@@ -56,7 +56,6 @@ authDetails: [],
 products: [],
 storeOn: true,
 loadProducts: false,
-root:'https://jokesterbox.com',
 
 
 
@@ -80,7 +79,7 @@ onStore() {
 this.storeOn = true
 
 
-axios.get(this.root + '/on/store/' + this.id ).then(response=>{
+axios.get('/on/store/' + this.id ).then(response=>{
 		
 		
 	})
@@ -91,7 +90,7 @@ offStore() {
 
 this.storeOn = false
 
-axios.get(this.root + '/off/store/' + this.id ).then(response=>{
+axios.get('/off/store/' + this.id ).then(response=>{
 		
 		
 	})		
@@ -101,7 +100,7 @@ axios.get(this.root + '/off/store/' + this.id ).then(response=>{
 
 getAuthDetails(){
 	
-	axios.get(this.root + '/auth/details').then(response=>{
+	axios.get('/auth/details/').then(response=>{
 		
 		this.authDetails.push(response.data)
 	})
@@ -110,7 +109,7 @@ getAuthDetails(){
 
 getStoreProducts(){
 	
-	axios.get(this.root + '/products/store/' + this.id).then(response=>{
+	axios.get('/products/store/' + this.id).then(response=>{
 		response.data.forEach((product)=> {
 		this.products.push(product)
 		})
