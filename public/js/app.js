@@ -51443,7 +51443,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51481,18 +51480,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.storeOn = true;
 
-			axios.get('/on/store/' + this.id).then(function (response) {});
+			axios.get(this.root + '/on/store/' + this.id).then(function (response) {});
 		},
 		offStore: function offStore() {
 
 			this.storeOn = false;
 
-			axios.get('/off/store/' + this.id).then(function (response) {});
+			axios.get(this.root + '/off/store/' + this.id).then(function (response) {});
 		},
 		getAuthDetails: function getAuthDetails() {
 			var _this = this;
 
-			axios.get('/auth/details').then(function (response) {
+			axios.get(this.root + '/auth/details').then(function (response) {
 
 				_this.authDetails.push(response.data);
 			});
@@ -51500,7 +51499,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		getStoreProducts: function getStoreProducts() {
 			var _this2 = this;
 
-			axios.get('/products/store/' + this.id).then(function (response) {
+			axios.get(this.root + '/products/store/' + this.id).then(function (response) {
 				response.data.forEach(function (product) {
 					_this2.products.push(product);
 				});
@@ -53254,7 +53253,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.prices.splice(index, 1);
 
-			axios.get('/remove/prices/' + pid).then(function (response) {
+			axios.get(this.root + '/remove/prices/' + pid).then(function (response) {
 
 				_this.getPrices();
 			});
@@ -53269,7 +53268,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			});
 
-			axios.post('/send/price', data, {
+			axios.post(this.root + '/send/price', data, {
 				headers: {
 					'Content-Type': 'application/json'
 
@@ -53286,7 +53285,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		getPrices: function getPrices() {
 			var _this3 = this;
 
-			axios.get('/get/prices/' + this.id).then(function (response) {
+			axios.get(this.root + '/get/prices/' + this.id).then(function (response) {
 
 				_this3.prices = [];
 				response.data.forEach(function (price) {
@@ -53297,7 +53296,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		getAuthDetails: function getAuthDetails() {
 			var _this4 = this;
 
-			axios.get('/auth/details').then(function (response) {
+			axios.get(this.root + '/auth/details').then(function (response) {
 
 				_this4.authDetails.push(response.data);
 			});
@@ -53315,13 +53314,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.available = true;
 
-			axios.get('/on/product/' + this.id).then(function (response) {});
+			axios.get(this.root + '/on/product/' + this.id).then(function (response) {});
 		},
 		offProduct: function offProduct() {
 
 			this.available = false;
 
-			axios.get('/off/product/' + this.id).then(function (response) {});
+			axios.get(this.root + '/off/product/' + this.id).then(function (response) {});
 		}
 	}
 
