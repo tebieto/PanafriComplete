@@ -53313,13 +53313,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.available = true;
 
-			axios.get(this.root + '/on/product/' + this.id).then(function (response) {});
+			axios.get('/on/product/' + this.id).then(function (response) {});
 		},
 		offProduct: function offProduct() {
 
 			this.available = false;
 
-			axios.get(this.root + '/off/product/' + this.id).then(function (response) {});
+			axios.get('/off/product/' + this.id).then(function (response) {});
 		}
 	}
 

@@ -225,7 +225,7 @@ onProduct() {
 	
 this.available = true
 
-axios.get(this.root + '/on/product/' + this.id ).then(response=>{
+axios.get('/on/product/' + this.id ).then(response=>{
 		
 		
 	})
@@ -236,7 +236,7 @@ offProduct() {
 	
 this.available = false
 
-axios.get(this.root + '/off/product/' + this.id ).then(response=>{
+axios.get('/off/product/' + this.id ).then(response=>{
 		
 		
 	})		
