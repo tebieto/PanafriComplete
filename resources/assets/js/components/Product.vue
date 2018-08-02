@@ -102,6 +102,7 @@ available: true,
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 root:'http://localhost',
 =======
 root:'https://jokesterbox.com',
@@ -112,6 +113,8 @@ root:'http://jokesterbox.com',
 =======
 root:'https://jokesterbox.com',
 >>>>>>> e1e392baa3ffc85d2861e73812220121d32df375
+=======
+>>>>>>> 3f053b0649b2cdbedf5b4e225632c2e746a9c50a
 pprice:'',
 punit:'',
 prices: []
@@ -139,7 +142,7 @@ var price = this.prices.find ( p => {
 	this.prices.splice(index, 1)
 
 
-axios.get(this.root + '/remove/prices/' + pid).then(response=>{
+axios.get('/remove/prices/' + pid).then(response=>{
 	
      this.getPrices()	
 		
@@ -158,7 +161,7 @@ let data = JSON.stringify({
     })
 				
 				
-				axios.post(this.root + '/send/price', data, {
+				axios.post('/send/price', data, {
 					headers: {
 						'Content-Type': 'application/json'
 						
@@ -179,7 +182,7 @@ let data = JSON.stringify({
 
 getPrices() {
 
-axios.get(this.root + '/get/prices/' + this.id).then(response=>{
+axios.get('/get/prices/' + this.id).then(response=>{
 		
 		this.prices = []
 		response.data.forEach((price) => {
@@ -193,7 +196,7 @@ axios.get(this.root + '/get/prices/' + this.id).then(response=>{
 
 getAuthDetails(){
 	
-	axios.get(this.root + '/auth/details').then(response=>{
+	axios.get('/auth/details').then(response=>{
 		
 		this.authDetails.push(response.data)
 	})
