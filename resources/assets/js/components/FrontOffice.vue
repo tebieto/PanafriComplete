@@ -42,7 +42,7 @@
 		<center>
 		
 		<button  v-if="this.online==1 && this.status==1 && this.shopItems.length>0" @click="displayShop()" style="background:green; color:#fff; border-radius:10px; border:none; margin-top:10px; padding:10px; font-weight:bold; cursor:pointer;">Enter Store</button>
-		
+		<button  v-else @click="displayShop()" style="background:green; visibility:hidden; color:#fff; border-radius:10px; border:none; margin-top:10px; padding:10px; font-weight:bold; cursor:pointer;">Enter Store</button>
 		</center>
 		<div class="items-modal"  v-if="showShop && this.online==1 && this.status==1" @click="hideShop()">
 		<span class="items-close">X</span>
