@@ -51447,7 +51447,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-	props: ['id', 'name', 'root', 'online'],
+	props: ['id', 'name', 'online'],
 
 	mounted: function mounted() {
 		if (this.online == 0) {
@@ -51465,7 +51465,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			authDetails: [],
 			products: [],
 			storeOn: true,
-			loadProducts: false
+			loadProducts: false,
+			root: 'https://jokesterbox.com'
 
 		};
 	},
