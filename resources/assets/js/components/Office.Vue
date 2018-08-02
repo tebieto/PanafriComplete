@@ -33,7 +33,7 @@
 
 export default {
 
-props:['id', 'name', 'root', 'online'],
+props:['id', 'name', 'online'],
 
 mounted() {
 if (this.online==0) {
@@ -56,6 +56,7 @@ authDetails: [],
 products: [],
 storeOn: true,
 loadProducts: false,
+root:'https://jokesterbox.com',
 
 
 

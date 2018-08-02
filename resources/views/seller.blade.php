@@ -163,7 +163,7 @@
 		
 		<div v-for="office in authShops">
 		
-		<office :root="'{{ config('app.url') }}'" :id="office.id" :name="office.name" :online="office.online"></office>
+		<office :id="office.id" :name="office.name" :online="office.online"></office>
 		</div>	
 		
 		
